@@ -3,7 +3,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-// Custom Exceptions
+
 class InvalidGenderException extends Exception {
     public InvalidGenderException(String message) {
         super(message);
@@ -22,7 +22,7 @@ class InvalidAgeException extends Exception {
     }
 }
 
-// --- Model Class ---
+
 class Voter {
     private String name;
     private String gender;
@@ -44,7 +44,7 @@ class Voter {
     }
 }
 
-// --- Utility Class for Validation ---
+
 class VoterValidator {
     public static void validateGender(String gender) throws InvalidGenderException {
         if (!(gender.equalsIgnoreCase("M") || gender.equalsIgnoreCase("F"))) {
@@ -61,7 +61,7 @@ class VoterValidator {
     }
 }
 
-// --- Main Application ---
+
 public class VoterApp {
 
     public static void main(String[] args) {
@@ -82,11 +82,11 @@ public class VoterApp {
 
                 System.out.print("Enter Age: ");
                 int age = sc.nextInt();
-                sc.nextLine(); // consume newline
+                sc.nextLine(); 
 
                 VoterValidator.validateAge(age);
 
-                // Create Voter Object
+                
                 Voter voter = new Voter(name, gender.toUpperCase(), age);
                 voter.displayDetails();
 
@@ -94,7 +94,7 @@ public class VoterApp {
                 System.out.println(e.getMessage());
             } catch (InputMismatchException e) {
                 System.out.println(" Invalid Input! Please enter a valid number for age.");
-                sc.nextLine(); // clear invalid input
+                sc.nextLine(); 
             }
 
             System.out.print("Do you want to register another voter? (yes/no): ");
